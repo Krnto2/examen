@@ -1,0 +1,108 @@
+import os
+os.system("cls")
+
+menu='''
+             Menu
+1.Comprar entradas
+2.Mostra ubicaciones disponibles
+3.Ver lisado de asistentes
+4.Mostrar ganancias totales
+5.Salir '''
+tipoentradas=('''    Entradas  
+ OPC +------------+----------------------+
+   1 |   PLATINUM |       $ 120000       |        
+ ----+------------+----------------------+
+   2 |   GOLD     |       $ 320000       |        
+ ----+------------+----------------------+
+   3 |   Silver   |       $ 50000        |        
+ ----+------------+----------------------+''')
+
+
+listaasistentes = [1,2,50,32,21]
+
+escenario ='''      ESCENARIO
+01,02,03,04,05,06,07,08,09,10,
+11,12,13,14,15,16,17,18,19,20,
+21,22,23,24,25,26,27,28,29,30,
+31,32,33,34,35,36,37,38,39,40,
+41,42,43,44,45,46,47,48,49,50,
+51,52,53,54,55,56,57,58,59,60,
+61,62,63,64,65,66,67,68,69,70,
+71,72,73,74,75,76,77,78,79,80,
+81,82,83,84,85,86,87,88,89,90,
+91,92,93,94,95,96,97,98,99,100'''
+
+
+lugaresdispo = [1,2,3,4,5,6,7,8,9,10,
+11,12,13,14,15,16,17,18,19,20,
+21,22,23,24,25,26,27,28,29,30,
+31,32,33,34,35,36,37,38,39,40,
+41,42,43,44,45,46,47,48,49,50,
+51,52,53,54,55,56,57,58,59,60,
+61,62,63,64,65,66,67,68,69,70,
+71,72,73,74,75,76,77,78,79,80,
+81,82,83,84,85,86,87,88,89,90,
+91,92,93,94,95,96,97,98,99,100]
+ticketscomprados = []
+
+def ComprarEntrada():
+         print(''' 
+* Platinum $ 120000 Asientos del 1 al 20
+* Gold     $ 80000  Asientos del 21 al 50
+* Silver   $ 50000  Asientos del 51 al 100''')
+         while True:
+               try:
+                     print("")
+                     asientito = int(input("Seleccione lugar: "))
+                     if asientito > 0 and asientito < 100:
+                           ticketscomprados.append(asientito)
+                           lugaresdispo.remove(asientito)
+                           break
+                     else:
+                           print("error")
+               except:
+                     print("error")
+         
+
+def ubis(): 
+      print(lugaresdispo)
+      print(len(lugaresdispo)), print("Lugares disponibles")
+def listado(): 
+      print(ticketscomprados)
+      print(len(ticketscomprados)), print("Tickets comprados")
+
+def moneyman():
+ for i in range(len(ticketscomprados)):
+                    print("--------------------------")
+                    print("|   Tickets   | Ganancias ")
+                    print("--------------+-------------")
+                    print(f"|       {((len)(ticketscomprados))}     |  $ {((len)(ticketscomprados))*120000}") 
+                    print("----------------------------")
+                    return menu    
+
+
+while True:
+    try:
+        print(menu)
+        opc = int(input("Seleccione opcion: "))
+        if opc == 1:
+             ComprarEntrada()
+        elif opc == 2:
+             ubis()
+        elif opc == 3:
+              listado()
+        elif opc == 4:
+              moneyman()
+        elif opc == 5:
+              break
+        else:
+            print("Error, seleccione opcion valida")
+    except:
+        print("Error, seleccione opcion valida")
+input("ENTER PARA TERMINAR")
+
+               
+            
+        
+
+
